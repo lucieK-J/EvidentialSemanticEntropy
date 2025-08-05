@@ -1,6 +1,6 @@
 
 
-def plausibility(F, M):# compute Pl only on focal sets
+def plausibility(F, M): # compute Pl only on focal sets
 
     Pl = [0.0] * len(F)
 
@@ -17,7 +17,7 @@ def plausibility(F, M):# compute Pl only on focal sets
     
     return Pl
 
-def belief(F, M):# compute bel only on focal sets
+def belief(F, M): # compute bel only on focal sets
 
     Bel = [0.0] * len(F)
 
@@ -37,7 +37,7 @@ def belief(F, M):# compute bel only on focal sets
 
 
 def calculate_pignistic_probability(F, M, frame_size):
-    # Initialize pignistic probabilities for each element in the frame
+    # Initialize pignistic probabilities for each element in the frame of discernment
     BetP = [0.0] * frame_size
 
     for focal_set, mass in zip(F, M):
