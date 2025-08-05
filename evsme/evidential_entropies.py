@@ -28,7 +28,6 @@ def jousselme_entropy(F, M, frame_size):
 
 def nguyen_entropy(M):
 
-    # Calculate pignistic probabilities
     entropy = 0
     for mass_val in M:
         entropy += mass_val * math.log(1/mass_val, 2)
@@ -41,7 +40,6 @@ def yager_entropy(F, M):
 
     Pl = plausibility(F, M)
 
-    # Calculate pignistic probabilities
     entropy = 0
     for i in range(len(M)):
         entropy -= M[i] * math.log(Pl[i], 2)
@@ -53,7 +51,6 @@ def hohle_entropy(F, M):
 
     Bel = belief(F, M)
 
-    # Calculate pignistic probabilities
     entropy = 0
     for i in range(len(M)):
         entropy -= M[i] * math.log(Bel[i], 2)
