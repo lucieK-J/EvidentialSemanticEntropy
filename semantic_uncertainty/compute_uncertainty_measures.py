@@ -39,10 +39,7 @@ from evsme.evidential_framework_construction import build_frame_of_discernement
 from evsme.evidential_framework_construction import mass_assignment
 from evsme.evidential_framework_construction import get_semantic_ids_and_hierarchy
 from evsme.evidential_entropies import jousselme_entropy
-from evsme.evidential_entropies import nguyen_entropy
-from evsme.evidential_entropies import dubois_prade_entropy
-from evsme.evidential_entropies import yager_entropy
-from evsme.evidential_entropies import hohle_entropy
+
 
 import kle
 
@@ -464,17 +461,6 @@ def main(args):
             jousselme = jousselme_entropy(F = mass['F'], M = mass['M'], frame_size = discernment_info['Omega_size'])
             entropies['jousselme'].append(jousselme)
 
-            nguyen = nguyen_entropy(M = mass['M'])
-            entropies['nguyen'].append(nguyen)
-
-            dubois_prade = dubois_prade_entropy(F = mass['F'], M = mass['M'], C_dec2C_bin = discernment_info['C_dec2C_bin'])
-            entropies['dubois_prade'].append(dubois_prade)
-
-            yager = yager_entropy(F = mass['F'], M = mass['M'])
-            entropies['yager'].append(yager)
-
-            hohle = hohle_entropy(F = mass['F'], M = mass['M'])
-            entropies['hohle'].append(hohle)
 
             # evsme ablations
             if args.compute_ablations:
