@@ -31,9 +31,6 @@ def all_entailements(strings_list, model, example=None):
 def get_semantic_ids_and_hierarchy(strings_list, entailements_full_matrix):
     """Group list of predictions into semantic meaning."""
 
-    doprint = False
-
-
     n = len(strings_list)
     # print("entailements_full_matrix" + str(entailements_full_matrix))
 
@@ -49,16 +46,12 @@ def get_semantic_ids_and_hierarchy(strings_list, entailements_full_matrix):
 
     while True:
 
-        if doprint: 
-            print(Mprim)
-            print(semantic_set_ids)
         
         relations = [(i, j) for i, row in enumerate(Mprim) for j, value in enumerate(row) if value == 2 and i !=j]
         G = nx.DiGraph(relations)
 
         try:
             cycle = nx.find_cycle(G, orientation='original')
-            if doprint: print("cycle  = " + str(cycle) )
         
         except:
             break
@@ -67,9 +60,6 @@ def get_semantic_ids_and_hierarchy(strings_list, entailements_full_matrix):
 
         [i,j] = [cycle[0][0], cycle[0][1]]
 
-        if doprint: print("Dans Mprim = " + str(Mprim) + ", [i,j] = " + str([i,j]) + " est un cycle")
-
-        if doprint: print("i is " + str(i) + " and j is "+ str(j))
         
         for k in range(n):
             if semantic_set_ids[k] == j:
@@ -176,11 +166,6 @@ def build_hierarchy(entailements_full_matrix, unique_responses):
 
     relations = eliminate_redundant_relations(relations_add_single_root)
 
-    # relations_add_single_root_not_redundant : [['england', 'Ignorance'], ['wales', 'Ignorance']]
-
-
-    # print("relations_add_single_root_not_redundant : " + str(relations_add_single_root_not_redundant))
-
 
     # add a child node to each parent with single child
     # Let us close the world by adding a filling nodes to the parents that own only one child 
@@ -260,7 +245,7 @@ def build_frame_of_discernement(hierarchy_info):
         Totreat.remove(Omega[i])
 
 
-    # Representatio  of the sets that are not singletons
+    # Representation  of the sets that are not singletons
     l = 0
     k = 0
     while len(Totreat) > 0: 
@@ -317,8 +302,6 @@ def build_frame_of_discernement(hierarchy_info):
 
 
     return discernment_info
-
-
 
 
 
