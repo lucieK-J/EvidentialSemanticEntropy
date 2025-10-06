@@ -18,7 +18,7 @@ This code is build on [kernel language entropy codebase](https://github.com/Alex
 python generate_answers.py --num_samples=500 --model_name=$MODEL --dataset=$DATASET --num_generations=5 --random_seed=42 --compute_kle
 ```
 
-* `$MODEL` is one of `[Llama-2-7b, falcon-40b-instruct, Mistral-7B-v0.1, Mistral-7B-Instruct-v0.1]`
+* `$MODEL` is one of `[Llama-2-7b, Llama-2-13b, Llama-2-7b-chat, Llama-2-13b-chat, falcon-7b, falcon-40b, falcon-40b-instruct, falcon-7b-instruct, Mistral-7B-v0.1, Mistral-7B-Instruct-v0.1]`
 * `$DATASET` is one of `[trivia_qa, squad, nq, svamp]`
 
 
